@@ -18,6 +18,9 @@ services:
       - traefik.http.routers.vaultwarden.rule=Host(`ward.${DOMAIN}`)
       - traefik.http.routers.vaultwarden.entrypoints=websecure
       - traefik.http.routers.vaultwarden.tls.certresolver=letsencrypt
+      - traefik.http.routers.vaultwarden-lan.rule=Host(`ward.lan`)
+      - traefik.http.routers.vaultwarden-lan.entrypoints=websecure
+      - traefik.http.routers.vaultwarden-lan.tls=true
       - traefik.http.services.vaultwarden.loadbalancer.server.port=80
 networks:
   proxy:
